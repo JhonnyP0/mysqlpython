@@ -1,0 +1,5 @@
+MySql database builded on Docker using Python-based clinet.
+
+Python stack: Tkinter, mysql.connector.
+
+This app is going to connect to database, show with listbox available tabels and choose between pushing excel data to db or mannualy enter data.

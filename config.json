@@ -1,0 +1,6 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "my-secret-pw",
+    "database": "temp"
+}
