@@ -4,6 +4,7 @@ from tkinter import *
 import json
 import subprocess
 import sending_data_script as sds
+#import graphFrame
 
 #def call():
 #    with open("sending_data_script.py") as f:
@@ -26,7 +27,7 @@ def config():
     with open("config.json", "w") as config_file:
         json.dump(conf, config_file,indent=4)
 
-def jsondumpbutton():
+def Json_Dump():
     messagebox.showinfo("Information",'Trying to Log in with entered specs')
     config()
     #call()
@@ -37,7 +38,7 @@ def jsondumpbutton():
     else:
         messagebox.showerror("Database",'Not Good')
 
-def Auselatestjsonbutton():
+def Latest_Sett():
     with open ("config.json", "r") as config_file:
         config_data=json.load(config_file)
     
@@ -58,42 +59,45 @@ def Auselatestjsonbutton():
     
 
 root=tk.Tk()
-root.title("LogIn")
+root.title("Log In")
 root.geometry("400x500")
 
+Log_Frame=tk.Frame(root)
+Log_Frame.pack()
+
 #login
-Loglabel=tk.Label(root,text="Login")
+Loglabel=tk.Label(Log_Frame,text="Login")
 Loglabel.pack()
 
-Logentry = tk.Entry(root)
+Logentry = tk.Entry(Log_Frame)
 Logentry.pack()
 
 #password
-Passlabel=tk.Label(root,text="Password")
+Passlabel=tk.Label(Log_Frame,text="Password")
 Passlabel.pack()
 
-Passentry = tk.Entry(root)
+Passentry = tk.Entry(Log_Frame)
 Passentry.pack()
 
 #host
-Hostlabel=tk.Label(root,text="Host")
+Hostlabel=tk.Label(Log_Frame,text="Host")
 Hostlabel.pack()
 
-Hostentry = tk.Entry(root)
+Hostentry = tk.Entry(Log_Frame)
 Hostentry.pack()
 
 #database
-dblabel=tk.Label(root,text="DataBase")
+dblabel=tk.Label(Log_Frame,text="DataBase")
 dblabel.pack()
 
-dbentry = tk.Entry(root)
+dbentry = tk.Entry(Log_Frame)
 dbentry.pack()
 
 
-dumpJsonbutton = tk.Button(root, text="Log In", command=jsondumpbutton)
+dumpJsonbutton = tk.Button(Log_Frame, text="Log In", command=Json_Dump)
 dumpJsonbutton.pack()
 
-uselatestjsonbutton = tk.Button(root, text="Use Latest Config", command=Auselatestjsonbutton)
+uselatestjsonbutton = tk.Button(Log_Frame, text="Use Latest Config", command=Latest_Sett)
 uselatestjsonbutton.pack()
 
 
